@@ -1,4 +1,4 @@
-import { getByText, render } from '@testing-library/react'
+import { getByRole, getByText, render } from '@testing-library/react'
 import React from 'react'
 
 import { App } from './App'
@@ -32,8 +32,21 @@ describe('Home Page', () => {
     const aboutMeParagraphElement = getByText(aboutMeParagraph)
     expect(aboutMeParagraphElement).toBeInTheDocument()
   })
-  it('Should button that redirect to portfolio page', () => {
+  it('Should include button that redirect to portfolio page', () => {
     const buttonText = 'GO TO PORTFOLIO'
+    const { getByRole } = render(<App />)
+    const buttonElement = getByRole('button', { name: buttonText })
+    expect(buttonElement).toBeInTheDocument()
+  })
+  // Contact me section
+  it('Should include contact me section title', () => {
+    const title = 'Interested in doing a project together?'
+    const { getByText } = render(<App />)
+    const titleElement = getByText(title)
+    expect(titleElement).toBeInTheDocument()
+  })
+  it('Should include button that redirect to portfolio page', () => {
+    const buttonText = 'CONTACT'
     const { getByRole } = render(<App />)
     const buttonElement = getByRole('button', { name: buttonText })
     expect(buttonElement).toBeInTheDocument()
