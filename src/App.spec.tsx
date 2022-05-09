@@ -11,7 +11,7 @@ describe('Home Page', () => {
     expect(homeTitle).toBeInTheDocument()
   })
   it('Hero section should contain button that redirect to "about me" section', () => {
-    const buttonLabel = 'About me'
+    const buttonLabel = 'ABOUT ME'
     const { getByText } = render(<App />)
     const buttonElement = getByText(buttonLabel)
     expect(buttonElement).toBeInTheDocument()
