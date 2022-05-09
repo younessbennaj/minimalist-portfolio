@@ -27,6 +27,13 @@ export const App: React.FC = () => {
           <a href='/portfolio'>GO TO PORTFOLIO</a>
         </button>
       </div>
+      {/* Contact Me Section */}
+      <div>
+        <h2>Interested in doing a project together?</h2>
+        <button>
+          <a href='/portfolio'>CONTACT ME</a>
+        </button>
+      </div>
     </div>
   )
 }

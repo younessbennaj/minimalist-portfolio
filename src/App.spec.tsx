@@ -46,7 +46,7 @@ describe('Home Page', () => {
     expect(titleElement).toBeInTheDocument()
   })
   it('Should include button that redirect to portfolio page', () => {
-    const buttonText = 'CONTACT'
+    const buttonText = 'CONTACT ME'
     const { getByRole } = render(<App />)
     const buttonElement = getByRole('button', { name: buttonText })
     expect(buttonElement).toBeInTheDocument()
