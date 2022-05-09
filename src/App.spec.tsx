@@ -1,4 +1,4 @@
-import { getByRole, getByText, render } from '@testing-library/react'
+import { getByRole, getByText, render, within } from '@testing-library/react'
 import React from 'react'
 
 import { App } from './App'
@@ -50,5 +50,26 @@ describe('Home Page', () => {
     const { getByRole } = render(<App />)
     const buttonElement = getByRole('button', { name: buttonText })
     expect(buttonElement).toBeInTheDocument()
+  })
+  // Footer
+  it('Should include link that redirect to home, portfolio and contact me page', () => {
+    const linkTexts = ['HOME', 'PORTFOLIO', 'CONTACT ME']
+    const { getByTestId } = render(<App />)
+    const footerNavbar = getByTestId('footer-navbar')
+    linkTexts.map((linkText: string) => {
+      const linkElement = within(footerNavbar).getByRole('link', {
+        name: linkText,
+      })
+      expect(linkElement).toBeInTheDocument()
+    })
+  })
+  it('Should include link that redirect to social networks', () => {
+    const socialNetworksLinkLabel = ['github', 'linkedin']
+    const { getByRole } = render(<App />)
+    socialNetworksLinkLabel.map((linkText: string) => {
+      getByRole('link', {
+        name: linkText,
+      })
+    })
   })
 })

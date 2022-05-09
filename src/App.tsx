@@ -31,8 +31,30 @@ export const App: React.FC = () => {
       <div>
         <h2>Interested in doing a project together?</h2>
         <button>
-          <a href='/portfolio'>CONTACT ME</a>
+          <a href='/contact-me'>CONTACT ME</a>
         </button>
+      </div>
+      {/* Footer Section */}
+      <div>
+        <ul data-testid='footer-navbar'>
+          <li>
+            <a href='/home'>HOME</a>
+          </li>
+          <li>
+            <a href='/portfolio'>PORTFOLIO</a>
+          </li>
+          <li>
+            <a href='/contact-me'>CONTACT ME</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href='https://github.com/'>github</a>
+          </li>
+          <li>
+            <a href='https://linkedin.com/'>linkedin</a>
+          </li>
+        </ul>
       </div>
     </div>
   )
