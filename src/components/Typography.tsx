@@ -1,36 +1,54 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface HeadingProps {
+  as: 'h1' | 'h2' | 'h3'
   children: string | JSX.Element
-  size: string
+  size: 'sm' | 'md' | 'lg'
+}
+
+export const Heading: React.FC<HeadingProps> = ({ as, children, size }) => {
+  // Get dynamic tag name through 'as' prop passing to the component
+  const HeadingTag = as as keyof JSX.IntrinsicElements
+
+  // Define font styles by heading size
+  const fontStyles = {
+    lg: css`
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 50px;
+    `,
+    md: css`
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 42px;
+    `,
+    sm: css`
+      font-weight: 400;
+      font-size: 32px;
+      line-height: 36px;
+    `,
+  }
+
+  // Inject css into Heading Component
+  const StyledHeadingTag = styled(HeadingTag)<{ size: string }>`
+    ${({ size }) => fontStyles[size as keyof typeof fontStyles]}
+  `
+
+  return <StyledHeadingTag size={size}>{children}</StyledHeadingTag>
 }
 
 interface TextProps {
   children: string | JSX.Element
-  size?: string
+  size?: 'sm' | 'md'
 }
 
-const TextStyled = styled.p`
-  font-size: 16px;
+const TextStyled = styled.p<{ size: string }>`
+  font-weight: 400;
+  font-size: ${({ size }) => (size === 'sm' ? '15px' : '16px')};
+  line-height: 30px;
 `
 
-export const Heading: React.FC<HeadingProps> = ({ children, size }) => {
-  switch (size) {
-    case 'small':
-      return <h3>{children}</h3>
-      break
-    case 'medium':
-      return <h2>{children}</h2>
-      break
-    case 'large':
-      return <h1>{children}</h1>
-      break
-    default:
-      return <h1>{children}</h1>
-  }
-}
-
-export const Text: React.FC<TextProps> = ({ children, size = 'default' }) => {
-  return <TextStyled>{children}</TextStyled>
+export const Text: React.FC<TextProps> = ({ children, size = 'md' }) => {
+  return <TextStyled size={size}>{children}</TextStyled>
 }
