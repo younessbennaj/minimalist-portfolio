@@ -1,4 +1,6 @@
-# Outside-in React App Boilerplate
+# Minimalist Portfolio
+
+**_Live version_**: https://minimalist-portfolio-youness-bennaj.netlify.app/
 
 ## Tech Stack
 
