@@ -1,6 +1,8 @@
 import { fireEvent, render } from '@testing-library/react'
 import React from 'react'
 
+import { Button } from './Button'
+
 describe('Button', () => {
   it('Should render button element with correct wording', () => {
     const buttonLabel = 'My Button'
@@ -12,7 +14,7 @@ describe('Button', () => {
   it('Should have the correct href attribute', () => {
     const buttonLabel = 'My Button'
     const { getByRole } = render(<Button href='#portfolio'>My Button</Button>)
-    const button = getByRole('button', { name: buttonLabel })
+    const button = getByRole('link', { name: buttonLabel })
     expect(button).toHaveAttribute('href', '#portfolio')
   })
 
