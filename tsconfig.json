@@ -16,5 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "cypress"]
+  "include": ["src", "cypress", "./jest-setup.ts"],
+  "types": ["node", "jest", "@testing-library/jest-dom"]
 }
