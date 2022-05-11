@@ -28,4 +28,17 @@ describe('Button', () => {
     fireEvent.click(button)
     expect(handleOnClick).toBeCalled()
   })
+
+  it('Should not call event handler on click if it has disabled state', () => {
+    const buttonLabel = 'My Button'
+    const handleOnClick = jest.fn()
+    const { getByRole } = render(
+      <Button disabled onClick={handleOnClick}>
+        My Button
+      </Button>
+    )
+    const button = getByRole('button', { name: buttonLabel })
+    fireEvent.click(button)
+    expect(handleOnClick).not.toBeCalled()
+  })
 })

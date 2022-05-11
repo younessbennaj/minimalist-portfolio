@@ -4,12 +4,13 @@ import styled from 'styled-components'
 type VariantType = 'primary' | 'secondary'
 interface ButtonProps {
   children: string | JSX.Element
+  disabled?: boolean
   href?: string
   onClick?: () => void
   variant?: VariantType
 }
 
-const ButtonStyled = styled.button<{ variant: VariantType }>`
+const ButtonStyled = styled.button<{ disabled: boolean; variant: VariantType }>`
   background-color: ${({ variant }) =>
     variant === 'primary' ? '#203A4C' : 'transparent'};
   border: ${({ variant }) =>
@@ -47,6 +48,7 @@ const ButtonStyled = styled.button<{ variant: VariantType }>`
 
 export const Button: React.FC<ButtonProps> = ({
   children,
+  disabled = false,
   href,
   onClick,
   // Primary button by default
@@ -55,7 +57,7 @@ export const Button: React.FC<ButtonProps> = ({
   // Conditionnal attribute href
   const attributes = href ? { href } : {}
   return (
-    <ButtonStyled onClick={onClick} variant={variant}>
+    <ButtonStyled disabled={disabled} onClick={onClick} variant={variant}>
       <a {...attributes}>{children}</a>
     </ButtonStyled>
   )
