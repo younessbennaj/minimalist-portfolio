@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 type VariantType = 'primary' | 'secondary'
 interface ButtonProps {
@@ -17,6 +17,19 @@ const ButtonStyled = styled.button<{ disabled: boolean; variant: VariantType }>`
     variant === 'primary' ? '1px solid #203A4C' : '1px solid #33323D'};
   padding: 16px 32px;
   cursor: pointer;
+
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      background-color: #eaeaeb;
+      border: 1px solid #eaeaeb;
+      color: #33323d;
+      pointer-events: none;
+      cursor: not-allowed;
+      a {
+        color: #33323d !important;
+      }
+    `}
 
   &:hover {
     background-color: ${({ variant }) =>
@@ -43,6 +56,11 @@ const ButtonStyled = styled.button<{ disabled: boolean; variant: VariantType }>`
     letter-spacing: 2px;
     text-decoration: none;
     text-transform: uppercase;
+
+    &::disabled {
+      cursor: not-allowed;
+      pointer-events: all !important;
+    }
   }
 `
 

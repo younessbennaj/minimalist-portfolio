@@ -24,3 +24,9 @@ export const SecondaryButtonHover = () => (
   <Button variant='secondary'>Secondary</Button>
 )
 SecondaryButtonHover.parameters = { pseudo: { hover: true } }
+
+export const DisabledButton = () => (
+  <Button disabled onClick={() => console.log('called')} variant='primary'>
+    Disabled
+  </Button>
+)
