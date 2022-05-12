@@ -23,6 +23,3 @@ export const SmallHeading = () => (
     Jived fox nymph grabs quick waltz
   </Heading>
 )
-
-// export const DefaultTextBody = () => <Text>Default Body</Text>
-// export const SmallTextBody = () => <Heading size='small'>Small body</Heading>
