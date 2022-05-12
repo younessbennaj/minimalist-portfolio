@@ -44,6 +44,8 @@ export const Heading: React.FC<HeadingProps> = ({
     size: string
   }>`
     ${({ size }) => fontStyles[size as keyof typeof fontStyles]}
+    margin: 0px;
+    padding: 0px;
     text-align: ${({ align }) => align};
   `
 

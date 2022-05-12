@@ -1,16 +1,26 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+import { spacing } from '../styles/utils'
+
 type VariantType = 'primary' | 'secondary'
 interface ButtonProps {
   children: string | JSX.Element
   disabled?: boolean
   href?: string
   onClick?: () => void
+  spacing?: number
   variant?: VariantType
 }
 
-const ButtonStyled = styled.button<{ disabled: boolean; variant: VariantType }>`
+const ButtonStyled = styled.button`
+  ${spacing}
+`
+
+const CustomButtonStyled = styled(ButtonStyled)<{
+  disabled: boolean
+  variant: VariantType
+}>`
   background-color: ${({ variant }) =>
     variant === 'primary' ? '#203A4C' : 'transparent'};
   border: ${({ variant }) =>
@@ -69,14 +79,20 @@ export const Button: React.FC<ButtonProps> = ({
   disabled = false,
   href,
   onClick,
+  spacing = 0,
   // Primary button by default
   variant = 'primary',
 }) => {
   // Conditionnal attribute href
   const attributes = href ? { href } : {}
   return (
-    <ButtonStyled disabled={disabled} onClick={onClick} variant={variant}>
+    <CustomButtonStyled
+      disabled={disabled}
+      onClick={onClick}
+      spacing={spacing}
+      variant={variant}
+    >
       <a {...attributes}>{children}</a>
-    </ButtonStyled>
+    </CustomButtonStyled>
   )
 }

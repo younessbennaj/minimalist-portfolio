@@ -3,8 +3,18 @@ import styled from 'styled-components'
 
 import { Button } from '../components/Button'
 import { Heading, Text } from '../components/Typography'
+import { spacing } from '../styles/utils'
 
-const Flex = styled.div`
+const Box = styled.div`
+  ${spacing}
+`
+
+// const Box = styled.div<BoxType>`
+//   margin-bottom: ${({ spacing = 0 }) => `${spacing}px`};
+//   padding: ${({ padding = 0 }) => `${padding}px`};
+// `
+
+const Flex = styled(Box)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,14 +23,16 @@ const Flex = styled.div`
 
 export const HomePage: React.FC = () => {
   return (
-    <div>
+    <Box p={32}>
       {/* Home Section */}
       <div>
         <Heading as='h1' size='md'>
           Hey, I’m Youness Bennaj and I love building maintainalble web
           applications.
         </Heading>
-        <Button href='#about'>ABOUT ME</Button>
+        <Button href='#about' spacing={96}>
+          ABOUT ME
+        </Button>
       </div>
       {/* About Me Section */}
       <div>
@@ -42,7 +54,7 @@ export const HomePage: React.FC = () => {
         </Button>
       </div>
       {/* Contact Me Section */}
-      <Flex>
+      <Flex p={4}>
         <Heading align='center' as='h2' size='md'>
           Interested in doing a project together?
         </Heading>
@@ -72,6 +84,6 @@ export const HomePage: React.FC = () => {
           </li>
         </ul>
       </div>
-    </div>
+    </Box>
   )
 }

@@ -8,3 +8,7 @@ export default {
 }
 
 export const HomePageComponent = () => <HomePage />
+
+HomePageComponent.parameters = {
+  layout: 'fullscreen',
+}

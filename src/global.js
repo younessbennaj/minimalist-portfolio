@@ -30,6 +30,8 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
+    padding: 0;
+    margin: 0;
    }
 
    h1, h2, h3 {
