@@ -1,7 +1,15 @@
 import * as React from 'react'
+import styled from 'styled-components'
 
 import { Button } from '../components/Button'
 import { Heading, Text } from '../components/Typography'
+
+const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
 
 export const HomePage: React.FC = () => {
   return (
@@ -34,14 +42,14 @@ export const HomePage: React.FC = () => {
         </Button>
       </div>
       {/* Contact Me Section */}
-      <div>
-        <Heading as='h2' size='md'>
+      <Flex>
+        <Heading align='center' as='h2' size='md'>
           Interested in doing a project together?
         </Heading>
         <Button href='/portfolio' variant='secondary'>
           CONTACT ME
         </Button>
-      </div>
+      </Flex>
       {/* Footer Section */}
       <div>
         <ul data-testid='footer-navbar'>

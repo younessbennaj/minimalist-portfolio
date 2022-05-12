@@ -1,13 +1,21 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+type TextAlignType = 'left' | 'right' | 'center'
+
 interface HeadingProps {
+  align?: TextAlignType
   as: 'h1' | 'h2' | 'h3'
   children: string | JSX.Element
   size: 'sm' | 'md' | 'lg'
 }
 
-export const Heading: React.FC<HeadingProps> = ({ as, children, size }) => {
+export const Heading: React.FC<HeadingProps> = ({
+  align = 'left',
+  as,
+  children,
+  size,
+}) => {
   // Get dynamic tag name through 'as' prop passing to the component
   const HeadingTag = as as keyof JSX.IntrinsicElements
 
@@ -31,11 +39,19 @@ export const Heading: React.FC<HeadingProps> = ({ as, children, size }) => {
   }
 
   // Inject css into Heading Component
-  const StyledHeadingTag = styled(HeadingTag)<{ size: string }>`
+  const StyledHeadingTag = styled(HeadingTag)<{
+    align: TextAlignType
+    size: string
+  }>`
     ${({ size }) => fontStyles[size as keyof typeof fontStyles]}
+    text-align: ${({ align }) => align};
   `
 
-  return <StyledHeadingTag size={size}>{children}</StyledHeadingTag>
+  return (
+    <StyledHeadingTag align={align} size={size}>
+      {children}
+    </StyledHeadingTag>
+  )
 }
 
 interface TextProps {
