@@ -26,16 +26,16 @@ export const HomePage: React.FC = () => {
           in nature whether that’s going for a walk, workout or visiting some
           beautiful places. I’d love you to check out my work.
         </p>
-        <button>
-          <a href='/portfolio'>GO TO PORTFOLIO</a>
-        </button>
+        <Button href='/portfolio' variant='secondary'>
+          GO TO PORTFOLIO
+        </Button>
       </div>
       {/* Contact Me Section */}
       <div>
         <h2>Interested in doing a project together?</h2>
-        <button>
-          <a href='/contact-me'>CONTACT ME</a>
-        </button>
+        <Button href='/portfolio' variant='secondary'>
+          CONTACT ME
+        </Button>
       </div>
       {/* Footer Section */}
       <div>
