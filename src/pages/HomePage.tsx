@@ -1,22 +1,25 @@
 import * as React from 'react'
 
 import { Button } from '../components/Button'
+import { Heading, Text } from '../components/Typography'
 
 export const HomePage: React.FC = () => {
   return (
     <div>
       {/* Home Section */}
       <div>
-        <h1>
-          Hey, I’m Youness Bennaj and I love building maintainalble, modulable
-          and scalable web applications.
-        </h1>
+        <Heading as='h1' size='md'>
+          Hey, I’m Youness Bennaj and I love building maintainalble web
+          applications.
+        </Heading>
         <Button href='#about'>ABOUT ME</Button>
       </div>
       {/* About Me Section */}
       <div>
-        <h2>About Me</h2>
-        <p>
+        <Heading as='h2' size='md'>
+          About Me
+        </Heading>
+        <Text>
           I’m a front-end developer looking for a new role in an exciting
           company. I focus on writing accessible HTML, using modern CSS
           practices and writing clean JavaScript. I mostly use React and I am
@@ -25,14 +28,16 @@ export const HomePage: React.FC = () => {
           teams. When I’m not coding, you’ll find me outdoors. I love being out
           in nature whether that’s going for a walk, workout or visiting some
           beautiful places. I’d love you to check out my work.
-        </p>
+        </Text>
         <Button href='/portfolio' variant='secondary'>
           GO TO PORTFOLIO
         </Button>
       </div>
       {/* Contact Me Section */}
       <div>
-        <h2>Interested in doing a project together?</h2>
+        <Heading as='h2' size='md'>
+          Interested in doing a project together?
+        </Heading>
         <Button href='/portfolio' variant='secondary'>
           CONTACT ME
         </Button>
