@@ -21,50 +21,72 @@ const Flex = styled(Box)`
   align-items: center;
 `
 
+const StyledList = styled.ul`
+  text-align: center;
+
+  li {
+    margin-bottom: 16px;
+  }
+
+  a {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 0;
+  }
+`
+
+const StyledFooter = styled(Flex)`
+  background: #33323d;
+`
+
 export const HomePage: React.FC = () => {
   return (
-    <Box p={32}>
-      {/* Home Section */}
-      <div>
-        <Heading as='h1' size='md'>
-          Hey, I’m Youness Bennaj and I love building maintainalble web
-          applications.
-        </Heading>
-        <Button href='#about' spacing={96}>
-          ABOUT ME
-        </Button>
-      </div>
-      {/* About Me Section */}
-      <div>
-        <Heading as='h2' size='md'>
-          About Me
-        </Heading>
-        <Text>
-          I’m a front-end developer looking for a new role in an exciting
-          company. I focus on writing accessible HTML, using modern CSS
-          practices and writing clean JavaScript. I mostly use React and I am
-          mastering tools and libraries in its ecosystem. I’m based in Paris,
-          FR, but I’m happy working remotely and have experience in remote
-          teams. When I’m not coding, you’ll find me outdoors. I love being out
-          in nature whether that’s going for a walk, workout or visiting some
-          beautiful places. I’d love you to check out my work.
-        </Text>
-        <Button href='/portfolio' variant='secondary'>
-          GO TO PORTFOLIO
-        </Button>
-      </div>
-      {/* Contact Me Section */}
-      <Flex p={4}>
-        <Heading align='center' as='h2' size='md'>
-          Interested in doing a project together?
-        </Heading>
-        <Button href='/portfolio' variant='secondary'>
-          CONTACT ME
-        </Button>
-      </Flex>
+    <>
+      <Box p={32}>
+        {/* Home Section */}
+        <div>
+          <Heading as='h1' size='md' spacing={32}>
+            Hey, I’m Youness Bennaj and I love building maintainalble web
+            applications.
+          </Heading>
+          <Button href='#about' spacing={96}>
+            ABOUT ME
+          </Button>
+        </div>
+        {/* About Me Section */}
+        <div>
+          <Heading as='h2' size='md' spacing={24}>
+            About Me
+          </Heading>
+          <Text spacing={24}>
+            I’m a front-end developer looking for a new role in an exciting
+            company. I focus on writing accessible HTML, using modern CSS
+            practices and writing clean JavaScript. I mostly use React and I am
+            mastering tools and libraries in its ecosystem. I’m based in Paris,
+            FR, but I’m happy working remotely and have experience in remote
+            teams. When I’m not coding, you’ll find me outdoors. I love being
+            out in nature whether that’s going for a walk, workout or visiting
+            some beautiful places. I’d love you to check out my work.
+          </Text>
+          <Button href='/portfolio' spacing={48} variant='secondary'>
+            GO TO PORTFOLIO
+          </Button>
+        </div>
+        {/* Contact Me Section */}
+        <Flex py={96}>
+          <Heading align='center' as='h2' size='md' spacing={48}>
+            Interested in doing a project together?
+          </Heading>
+          <Button href='/portfolio' variant='secondary'>
+            CONTACT ME
+          </Button>
+        </Flex>
+      </Box>
       {/* Footer Section */}
-      <div>
-        <ul data-testid='footer-navbar'>
+      <StyledFooter py={48}>
+        <StyledList data-testid='footer-navbar'>
           <li>
             <a href='/home'>HOME</a>
           </li>
@@ -74,16 +96,16 @@ export const HomePage: React.FC = () => {
           <li>
             <a href='/contact-me'>CONTACT ME</a>
           </li>
-        </ul>
-        <ul>
+        </StyledList>
+        <StyledList>
           <li>
             <a href='https://github.com/'>github</a>
           </li>
           <li>
             <a href='https://linkedin.com/'>linkedin</a>
           </li>
-        </ul>
-      </div>
-    </Box>
+        </StyledList>
+      </StyledFooter>
+    </>
   )
 }
