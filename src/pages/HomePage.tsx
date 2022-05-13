@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { Button } from '../components/Button'
 import { Heading, Text } from '../components/Typography'
+import ImageL from '../images/youness-mobile-l.jpeg'
 import ImageS from '../images/youness-mobile-s.jpeg'
 import { spacing } from '../styles/utils'
 
@@ -24,7 +25,7 @@ const Flex = styled(Box)`
 
 const ResponsiveImage = styled.img`
   ${spacing}
-  width: 100%;
+  max-width: 100%;
   height: auto;
 `
 
@@ -48,6 +49,10 @@ const StyledFooter = styled(Flex)`
   background: #33323d;
 `
 
+const srcset = `${ImageS} 260w, ${ImageL} 350w`
+
+const sizes = '(max-width: 350px) 260px, 350px'
+
 export const HomePage: React.FC = () => {
   return (
     <>
@@ -64,7 +69,14 @@ export const HomePage: React.FC = () => {
         </div>
         {/* About Me Section */}
         <div>
-          <ResponsiveImage alt='youness_bennaj' spacing={48} src={ImageS} />
+          {/* To test with desktop image */}
+          <ResponsiveImage
+            alt='youness_bennaj'
+            sizes={sizes}
+            spacing={48}
+            src={ImageS}
+            srcSet={srcset}
+          />
           <Heading as='h2' size='md' spacing={24}>
             About Me
           </Heading>
