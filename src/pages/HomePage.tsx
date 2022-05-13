@@ -25,7 +25,7 @@ const Flex = styled(Box)`
 
 const ResponsiveImage = styled.img`
   ${spacing}
-  max-width: 100%;
+  width: 100%;
   height: auto;
 `
 
@@ -72,10 +72,12 @@ export const HomePage: React.FC = () => {
           {/* To test with desktop image */}
           <ResponsiveImage
             alt='youness_bennaj'
+            height='auto'
             sizes={sizes}
             spacing={48}
             src={ImageS}
             srcSet={srcset}
+            width='260'
           />
           <Heading as='h2' size='md' spacing={24}>
             About Me
