@@ -1,16 +1,30 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
+import { spacing, StyledUtilsType } from '../styles/utils'
+
+// Types
+
 type VariantType = 'primary' | 'secondary'
+
+// Need to inherit from StyledUtilsType to receive style utils like 'spacing'
+type ButtonStyledType = StyledUtilsType & {
+  disabled: boolean
+  variant: VariantType
+}
 interface ButtonProps {
   children: string | JSX.Element
   disabled?: boolean
   href?: string
   onClick?: () => void
+  spacing?: number
   variant?: VariantType
 }
 
-const ButtonStyled = styled.button<{ disabled: boolean; variant: VariantType }>`
+// Styled Components
+
+const CustomButtonStyled = styled.button<ButtonStyledType>`
+  ${spacing}
   background-color: ${({ variant }) =>
     variant === 'primary' ? '#203A4C' : 'transparent'};
   border: ${({ variant }) =>
@@ -64,19 +78,27 @@ const ButtonStyled = styled.button<{ disabled: boolean; variant: VariantType }>`
   }
 `
 
+// Component
+
 export const Button: React.FC<ButtonProps> = ({
   children,
   disabled = false,
   href,
   onClick,
+  spacing = 0,
   // Primary button by default
   variant = 'primary',
 }) => {
   // Conditionnal attribute href
   const attributes = href ? { href } : {}
   return (
-    <ButtonStyled disabled={disabled} onClick={onClick} variant={variant}>
+    <CustomButtonStyled
+      disabled={disabled}
+      onClick={onClick}
+      spacing={spacing}
+      variant={variant}
+    >
       <a {...attributes}>{children}</a>
-    </ButtonStyled>
+    </CustomButtonStyled>
   )
 }

@@ -7,7 +7,7 @@ describe('Home Page', () => {
   // HERO SECTION
   it('Hero title should be displayed in hero section', () => {
     const homeTitle =
-      'Hey, I’m Youness Bennaj and I love building maintainalble, modulable and scalable web applications.'
+      'Hey, I’m Youness Bennaj and I love building maintainalble web applications.'
     const { getByText } = render(<App />)
     const homeTitleElement = getByText(homeTitle)
     expect(homeTitleElement).toBeInTheDocument()
