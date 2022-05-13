@@ -8,3 +8,5 @@ export default {
 }
 
 export const NavbarComponent = () => <Navbar />
+
+NavbarComponent.parameters = { pseudo: { hover: true } }

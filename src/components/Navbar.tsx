@@ -2,12 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 
 const NavDropDown = styled.nav`
+  background-color: #33323d;
   display: none;
+  padding: 40px 64px;
+  text-align: center;
+  position: absolute;
+  left: 0;
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  a {
+    color: #ffffff;
+  }
 `
 
 const BurgerMenu = styled.div`
+  position: relative;
   &:hover nav {
-    display: block;
+    display: inline-block;
   }
 `
 
@@ -25,7 +44,7 @@ export const Navbar: React.FC = () => {
               <a href='/portfolio'>PORTFOLIO</a>
             </li>
             <li>
-              <a href='/contact'>CONTACT</a>
+              <a href='/contact'>CONTACT ME</a>
             </li>
           </ul>
         </NavDropDown>
