@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import { Button } from '../components/Button'
 import { Heading, Text } from '../components/Typography'
+import ImageS from '../images/youness-mobile-s.jpeg'
 import { spacing } from '../styles/utils'
 
 const Box = styled.div`
@@ -19,6 +20,12 @@ const Flex = styled(Box)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`
+
+const ResponsiveImage = styled.img`
+  ${spacing}
+  width: 100%;
+  height: auto;
 `
 
 const StyledList = styled.ul`
@@ -51,12 +58,13 @@ export const HomePage: React.FC = () => {
             Hey, I’m Youness Bennaj and I love building maintainalble web
             applications.
           </Heading>
-          <Button href='#about' spacing={96}>
+          <Button href='#about' spacing={48}>
             ABOUT ME
           </Button>
         </div>
         {/* About Me Section */}
         <div>
+          <ResponsiveImage alt='youness_bennaj' spacing={48} src={ImageS} />
           <Heading as='h2' size='md' spacing={24}>
             About Me
           </Heading>
