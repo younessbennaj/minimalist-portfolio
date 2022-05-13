@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import { Button } from '../components/Button'
 import { Heading, Text } from '../components/Typography'
+import ImageL from '../images/youness-mobile-l.jpeg'
+import ImageS from '../images/youness-mobile-s.jpeg'
 import { spacing } from '../styles/utils'
 
 const Box = styled.div`
@@ -19,6 +21,12 @@ const Flex = styled(Box)`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`
+
+const ResponsiveImage = styled.img`
+  ${spacing}
+  width: 100%;
+  height: auto;
 `
 
 const StyledList = styled.ul`
@@ -41,6 +49,10 @@ const StyledFooter = styled(Flex)`
   background: #33323d;
 `
 
+const srcset = `${ImageS} 260w, ${ImageL} 350w`
+
+const sizes = '(max-width: 350px) 260px, 350px'
+
 export const HomePage: React.FC = () => {
   return (
     <>
@@ -51,12 +63,22 @@ export const HomePage: React.FC = () => {
             Hey, I’m Youness Bennaj and I love building maintainalble web
             applications.
           </Heading>
-          <Button href='#about' spacing={96}>
+          <Button href='#about' spacing={48}>
             ABOUT ME
           </Button>
         </div>
         {/* About Me Section */}
         <div>
+          {/* To test with desktop image */}
+          <ResponsiveImage
+            alt='youness_bennaj'
+            height='auto'
+            sizes={sizes}
+            spacing={48}
+            src={ImageS}
+            srcSet={srcset}
+            width='260'
+          />
           <Heading as='h2' size='md' spacing={24}>
             About Me
           </Heading>
