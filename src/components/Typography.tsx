@@ -12,6 +12,33 @@ type HeadingStyledType = StyledUtilsType & {
 
 type TextStyledType = StyledUtilsType & { size: string }
 
+// Define font styles by heading size
+const fontStyles = {
+  lg: css`
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 50px;
+  `,
+  md: css`
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 42px;
+  `,
+  sm: css`
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 36px;
+  `,
+}
+
+const StyledHeadingTag = styled.div<HeadingStyledType>`
+  margin: 0px;
+  padding: 0px;
+  ${spacingUtils}
+  ${({ size }) => fontStyles[size as keyof typeof fontStyles]}
+  text-align: ${({ align }) => align};
+`
+
 interface HeadingProps {
   align?: TextAlignType
   as: 'h1' | 'h2' | 'h3'
@@ -27,39 +54,8 @@ export const Heading: React.FC<HeadingProps> = ({
   size,
   spacing = 0,
 }) => {
-  // Get dynamic tag name through 'as' prop passing to the component
-  const HeadingTag = as as keyof JSX.IntrinsicElements
-
-  // Define font styles by heading size
-  const fontStyles = {
-    lg: css`
-      font-weight: 700;
-      font-size: 50px;
-      line-height: 50px;
-    `,
-    md: css`
-      font-weight: 700;
-      font-size: 40px;
-      line-height: 42px;
-    `,
-    sm: css`
-      font-weight: 400;
-      font-size: 32px;
-      line-height: 36px;
-    `,
-  }
-
-  // Inject css into Heading Component
-  const StyledHeadingTag = styled(HeadingTag)<HeadingStyledType>`
-    margin: 0px;
-    padding: 0px;
-    ${spacingUtils}
-    ${({ size }) => fontStyles[size as keyof typeof fontStyles]}
-    text-align: ${({ align }) => align};
-  `
-
   return (
-    <StyledHeadingTag align={align} size={size} spacing={spacing}>
+    <StyledHeadingTag align={align} as={as} size={size} spacing={spacing}>
       {children}
     </StyledHeadingTag>
   )
